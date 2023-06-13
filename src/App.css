@@ -1,38 +1,70 @@
 .App {
   text-align: center;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.loginform {
+  margin: 200px 600px; 
+  background-color: white;
+  width: 30em;
+  height: 30em;
+  position: relative;
+  border-radius: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 0.188em 1.550em  rgb(156,156,156);
+  
+}
+
+
+.alt-login {
+  width: 80%;
+  height:3em;
+  display: flex;
+  justify-content:space-evenly;
+}
+
+
+.other{
+  
+  text-decoration-line: underline;
+  text-align: center;
+  
+}
+.alt-login div{
+  width: 45%;
+  height: 90%;
+  border-radius: 0.25em;
+  background-color: blue;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  ;
+}
+
+
+.google{
+
+  background-image: url("https://tse1.mm.bing.net/th?id=OIP.bQFWLjAk0JQta4ZayBBRwAHaHa&pid=Api&P=0&h=180");
+}
+.facebook{
+  background-image: url("https://tse4.mm.bing.net/th?id=OIP.QHODby_bS81-x2of8vCIhgHaHa&pid=Api&P=0&h=180");
+}
+
+.button{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* margin-left: 60px; */
+  width:13em;
+  background-color:aqua;
+  
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input {
+  height: 2em;
+  width:13em;
+  text-align: center;
+  
 }
