@@ -1,33 +1,38 @@
-import React from "react"
-export default function Login() {
+import {useState} from "react";
 
-    const submitHandler = (event) => {
+
+const LoginForm = () => {
+    const [form, setForm] = useState({
+        username: '',
+        password: '',
+    }) ;
+
+    const handleChange = (event) => {
+        setForm ({
+            ...form,[event.target.id] : event.target.value,
+        });
+    };
+
+    const handleSubmit = (event) => {
         event.preventDefault();
 
-    }
+        alert(form.username + ' ' + form.password);
+    };
+
     return (
-        <div className="loginform">
-            <h3>Login</h3>
-            <form onSubmit={submitHandler}>
-                <p>
-
-                    <input type="text" placeholder="username" />
-                </p>
-                <p>
-
-                    <input type="password" placeholder="yourpassword" />
-                </p>
-                <button className="button">Login</button>
-
-                <p className="other">Or login using</p>
-
-
-                <div className="alt-login">
-                    <div className="facebook"></div>
-                    <div className="google"></div>
-                </div>
-            </form>
-        </div>
+        <form onSubmit={handleSubmit}>
+            <h1>Login</h1>
+          <div>
+            <label htmlFor="username"></label>
+            <input id="username" type="text" value={form.username} onChange={handleChange} placeholder="username"/>
+          </div>
+          <div>
+            <label htmlFor="password"></label>
+            <input id="password" type="password" value={form.password} onChange={handleChange} placeholder="password"/>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
     );
-}
+ };
 
+ export default LoginForm;
