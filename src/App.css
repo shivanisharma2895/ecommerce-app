@@ -38,31 +38,4 @@ button{
   background-color: rgb(7, 87, 124);
   
 }
-p{
-  margin-left: 35px;
-}
-.alt-login{
-  display: flex;
-  height: 3em;
-  width: 80%;
-  justify-content: space-around;
-}
 
-.alt-login div{
-  width: 45%;
-  height: 90%;
-  border-radius: 0.25em;
-  
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  margin-left: 40px;
-}
-.facebook{
-  background-image: url("https://tse4.mm.bing.net/th?id=OIP.ch9Tq8lYq8xxFe0r2-zURQHaKd&pid=Api&P=0&h=180");
-}
-
-.google{
-  background-image: url("https://tse1.mm.bing.net/th?id=OIP.bQFWLjAk0JQta4ZayBBRwAHaHa&pid=Api&P=0&h=180");
-}

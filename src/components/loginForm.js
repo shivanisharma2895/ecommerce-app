@@ -2,44 +2,57 @@ import { useState } from "react";
 
 
 const LoginForm = () => {
-  const [form, setForm] = useState({
-    username: '',
-    password: '',
-  });
+  const [username , setUsername] = useState("mor_2314");
+  const [password, setPassword] = useState("83r5^_");
 
-  const handleChange = (event) => {
-    setForm({
-      ...form, [event.target.id]: event.target.value,
+  function handleUsernameChange(value){
+    setUsername(value);
+  }
+
+  function handlePasswordChange(value) {
+    setPassword(value);
+  }
+
+  async function onLogin() {
+    const result = await fetch("http://fakestoreapi.com/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: username,
+        password : password
+      })
     });
-  };
 
+    console.log(result);
+    const responsBody = await result.json();
+    console.log(responsBody);
+  }
+  
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    alert(form.username + ' ' + form.password);
-  };
+   };
 
   return (
     <div className="cover">
     <form onSubmit={handleSubmit}>
       <h1 className="lgn"><em>Login</em></h1>
       <div className="name">
-        <input id="username" type="text" value={form.username} onChange={handleChange} placeholder="username" />
+        <input id="username" type="text" value={username} onChange={(e) => handleUsernameChange(e.target.value)} placeholder=" enter username" />
       </div>
       <div className="password" >
-        <input id="password" type="password" value={form.password} onChange={handleChange} placeholder="password" />
+        <input id="password" type="password" value={password} onChange={(e) => handlePasswordChange(e.target.value)} placeholder=" enter password" />
       </div>
       <div className="btn">
-      <button type="submit">Submit</button>
+        <button onClick={() => onLogin()}>Login</button>
       </div>
-      <p className="text">---Or login using---</p>
-      <div className="alt-login">
-        <div className="facebook"></div>
-        <div className="google"></div>
-      </div>
+      
     </form>
     </div>
   );
-};
+}
+
 
 export default LoginForm;
