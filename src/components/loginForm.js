@@ -1,10 +1,15 @@
 import { useState } from "react";
+import ProductList from "./productList";
+import { useNavigate } from "react-router-dom";
+
 
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("mor_2314");
   const [password, setPassword] = useState("83r5^_");
-
+  const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated")|| false));
+  const users = [{ username: "mor_2314", password: "83r5^_" }];
   function handleUsernameChange(value) {
     setUsername(value);
   }
@@ -31,13 +36,17 @@ const LoginForm = () => {
     console.log(result);
     const responsBody = await result.json();
     console.log(responsBody);
-    if(responsBody.status === 200){
-      <link  to="/ProductList"/>
-    }
+    
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const account = users.find((user) => user.username === username);
+    if(account && account.password === password) {
+      setauthenticated(true)
+      localStorage.setItem("authenticated", true);
+      navigate("/product");
+    }
 
   };
 

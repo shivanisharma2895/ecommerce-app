@@ -1,41 +1,67 @@
 .App {
   text-align: center;
-  
+
 }
-h1.lgn{
+
+h1.lgn {
   text-align: center;
 }
 
-.cover{
+.cover {
   display: flex;
   margin: 200px;
-  box-shadow: 0 0.188em 1.550em rgb(156 , 156 , 156);
+  box-shadow: 0 0.188em 1.550em rgb(156, 156, 156);
   width: 30em;
   height: 30em;
   flex-direction: column;
   align-items: center;
   border-radius: 0.25em;
-  margin-left:  500px;
+  margin-left: 500px;
 }
 
 .name {
-  
+
   margin: 20px;
 }
 
-.password{
+.password {
   margin: 20px;
 }
 
-input{
+input {
   text-align: center;
   border-radius: 0.25em;
 }
 
-button{
-  width:80%;
+button {
+  width: 80%;
   margin-left: 20px;
   background-color: rgb(7, 87, 124);
-  
+
 }
 
+header h1 {
+  text-align: left;
+}
+
+header nav a {
+  padding: 6px;
+  border-radius: 4px;
+}
+
+
+.product-list {
+  display: inline-grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  font-size: 15px;
+
+}
+
+
+
+img {
+  width: 25%;
+  padding: 10px;
+
+}
