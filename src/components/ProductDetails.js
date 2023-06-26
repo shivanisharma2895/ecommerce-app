@@ -7,8 +7,15 @@ export function Product(props) {
             {props.price}<br />
             {props.description}<br />
             {props.category}
-
-
+            {
+                props.quantity ? (
+                    <div>
+                        <strong>
+                            Qauntity: {props.quantity}
+                        </strong>
+                    </div>
+                ) : null
+            }
         </div>
     )
 }

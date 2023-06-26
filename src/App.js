@@ -1,8 +1,8 @@
 import './App.css';
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
-import LoginForm from './components/loginForm';
-import ProductList from './components/productList';
-import Cart from './components/cart';
+import LoginForm from './pages/loginForm';
+import ProductList from './pages/productList';
+import Cart from './pages/cart';
 import RootLayout from './rootLayout/RootLayout';
 
 

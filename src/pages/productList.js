@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
-import { Product } from "./ProductDetails";
+import { Product } from "../components/ProductDetails";
 
 
 
 const ProductList = () => {
   const [products, setProducts] = useState([])
-  useEffect(() => { getProductList() }, [])
-  async function getProductList() {
-    console.log("ok");
-    console.log(products);
-    const response = await fetch("http://fakestoreapi.com/products", {
-      method: "GET",
-    })
-    console.log(response);
-    const responsBody = await response.json();
-    console.log(responsBody);
-    setProducts(responsBody);
-  }
+
+  useEffect(() => {
+    getProductList()
+
+    async function getProductList() {
+      console.log("ok");
+      console.log(products);
+      const response = await fetch("http://fakestoreapi.com/products", {
+        method: "GET",
+      })
+      console.log(response);
+      const responsBody = await response.json();
+      console.log(responsBody);
+      setProducts(responsBody);
+    }
+  }, [])
 
   return (
     <div className="product-list">
