@@ -1,7 +1,7 @@
 export function Product(props) {
     return (
         <div className="details">
-            <div className="pro-img"><img src={props.image} /></div>
+            <div><img src={props.image} /></div>
             <div>{props.id}</div>
             <div>{props.title}</div>
             <div>{props.price}</div>
