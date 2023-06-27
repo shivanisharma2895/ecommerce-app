@@ -20,18 +20,6 @@ const router = createBrowserRouter(
 function App() {
   return (
     <RouterProvider router={router} />
-    // <BrowserRouter>
-    // <header>
-    //   <h1><em>QuickShop</em></h1>
-    // </header>
-    // <Routes>
-    //   <Route path='/' element={<LoginForm/>}/>
-    //   <Route path='/product' element={<ProductList/>}/>
-    //   <Route path='/cart' element={<Cart/>}/>
-    // </Routes>
-    // </BrowserRouter>
-
-
   );
 }
 
