@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductList from "./productList";
 import { useNavigate } from "react-router-dom";
 
@@ -8,8 +8,14 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("mor_2314");
   const [password, setPassword] = useState("83r5^_");
-  const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated")|| false));
-  const users = [{ username: "mor_2314", password: "83r5^_" }];
+  const [authenticated, setauthenticated] = useState(localStorage.getItem("token") || false);
+
+  useEffect(() => {
+    if (authenticated) {
+      navigate("/product");
+    }
+  }, []);
+
   function handleUsernameChange(value) {
     setUsername(value);
   }
@@ -28,43 +34,32 @@ const LoginForm = () => {
         username: username,
         password: password
       }),
-      
-      
-      
     });
-    
-    console.log(result);
-    const responsBody = await result.json();
-    console.log(responsBody);
-    
-  }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const account = users.find((user) => user.username === username);
-    if(account && account.password === password) {
-      setauthenticated(true)
-      localStorage.setItem("authenticated", true);
+    console.log(result);
+    const status = result.status
+
+    if (status === 200) {
+      // user is authenticated
+      const body = await result.json();
+      localStorage.setItem("token", body.token);
       navigate("/product");
     }
-
-  };
+  }
 
   return (
     <div className="cover">
-      <form onSubmit={handleSubmit}>
-        <h1 className="lgn"><em>Login</em></h1>
-        <div className="name">
-          <input id="username" type="text" value={username} onChange={(e) => handleUsernameChange(e.target.value)} placeholder=" enter username" />
-        </div>
-        <div className="password" >
-          <input id="password" type="password" value={password} onChange={(e) => handlePasswordChange(e.target.value)} placeholder=" enter password" />
-        </div>
-        <div className="btn">
-          <button onClick={() => onLogin()}>Login</button>
-        </div>
-
-      </form>
+      <h1 className="lgn"><em>Login</em></h1>
+      <div className="name">
+        <input id="username" type="text" value={username} onChange={(e) => handleUsernameChange(e.target.value)} placeholder=" enter username" />
+      </div>
+      <div className="password" >
+        <input id="password" type="password" value={password} onChange={(e) => handlePasswordChange(e.target.value)} placeholder=" enter password" />
+      </div>
+      <div className="btn">
+        <button onClick={() => onLogin()}>Login</button>
+        {/* <button type="submit">Login</button> */}
+      </div>
     </div>
   );
 }
