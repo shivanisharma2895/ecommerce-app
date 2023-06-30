@@ -92,6 +92,10 @@ header nav a {
   font-size: 10px;
 }
 
+.del-btn {
+  width: 200px;
+}
+
 /* .details:hover {
   background-color: rgb(135, 135, 135);
   color: white;
