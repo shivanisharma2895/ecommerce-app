@@ -6,9 +6,10 @@ export default function RootLayout() {
             <header>
                 <nav>
                     <h1>QuickShop</h1>
-
-                    <Link to="/product">ProductList</Link>
-                    <Link to="/cart">Cart</Link>
+                    <div className="navigation">
+                        <Link to="/product">ProductList</Link>
+                        <Link to="/cart">Cart</Link>
+                    </div>
                 </nav>
             </header>
             <main>

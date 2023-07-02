@@ -63,7 +63,7 @@ const ProductList = () => {
       {products.map((product, index) => {
         return (<div>
           <Product image={product.image} id={product.id} title={product.title} price={product.price} description={product.description} category={product.category} key={index} />
-          <button onClick={() => AddToCart(product.id)}>Add to cart</button >
+          <button className="add" onClick={() => AddToCart(product.id)}>Add to cart</button >
         </div>
         )
       })}

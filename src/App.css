@@ -43,12 +43,13 @@ button {
 
 header h1 {
   text-align: left;
-  color: white;
+  color: black;
 }
 
 header nav a {
   padding: 6px;
   border-radius: 4px;
+
 }
 
 
@@ -63,14 +64,14 @@ header nav a {
 }
 
 .details {
-  border: 2px solid black;
+  box-shadow: 0 0.188em 1.550em rgb(156, 156, 156);
   padding-left: 10px;
   border-radius: 1em;
   background-color: azure;
   width: 300px;
   height: 300px;
   margin: 10px;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 
@@ -81,11 +82,12 @@ header nav a {
   height: 150px;
   border-radius: 1em 1em 0 0;
   padding-left: 70px;
+  margin-top: 10px;
 
 }
 
 .cart-details {
-  border: 2px solid black;
+  margin: 20px 10px;
   padding-left: 10px;
   border-radius: 0.25rem;
   background-color: azure;
@@ -96,10 +98,17 @@ header nav a {
   width: 200px;
 }
 
-/* .details:hover {
-  background-color: rgb(135, 135, 135);
-  color: white;
+.add {
+  margin-left: 35px;
+}
+
+.details:hover {
+  background-color: rgb(185, 185, 194);
+  color: black;
   cursor: pointer;
-  transform: scale(1.2);
-  transition: all 1s ease;
-} */
+
+}
+
+.navigation {
+  text-align: right;
+}

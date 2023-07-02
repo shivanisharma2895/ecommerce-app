@@ -63,33 +63,39 @@ const Cart = () => {
 
 
     async function deleteFromCart() {
-        const result = await fetch("http://fakestoreapi.com/carts/1", {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            },
+        try {
+            const result = await fetch("http://fakestoreapi.com/carts/1", {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                },
 
-        });
+            });
 
-        console.log(result);
-        const status = result.status
+            console.log(result);
+            const status = result.status
 
-        if (status === 200) {
-            console.log('item has been deleted')
-        } else {
-            console.error('Something went wrong')
+            if (status === 200) {
+                console.log('item has been deleted')
+            } else {
+                console.error('Something went wrong')
+            }
+        } catch (error) {
+            console.error("test error", error);
         }
     }
 
 
     return (
         <div className="cart-details">
-            <button className="del-btn" onClick={() => deleteFromCart()}>Delete from cart</button>
+
 
             {cartWithDetails.map((product, index) => {
                 return <div ><Product image={product.image} id={product.id} title={product.title} price={product.price} description={product.description} category={product.category} key={index} quantity={product.quantity} />
                 </div>
             })}
+
+            <button className="del-btn" onClick={() => deleteFromCart()}>Delete from cart</button>
 
         </div>
     );
